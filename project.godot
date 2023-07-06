@@ -1,0 +1,69 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "TextureButton",
+"class": "BaseCustomButton",
+"language": "GDScript",
+"path": "res://Scripts/BaseCustomButton.gd"
+}, {
+"base": "BaseCustomButton",
+"class": "CustomButton",
+"language": "GDScript",
+"path": "res://Scripts/CustomButton.gd"
+}, {
+"base": "BaseCustomButton",
+"class": "CustomModeButton",
+"language": "GDScript",
+"path": "res://Scripts/CustomModeButton.gd"
+} ]
+_global_script_class_icons={
+"BaseCustomButton": "",
+"CustomButton": "",
+"CustomModeButton": ""
+}
+
+[application]
+
+config/name="Primo"
+run/main_scene="res://Scenes/PrimoApp.tscn"
+boot_splash/show_image=false
+config/icon="res://Textures/AppIcon128x128.png"
+
+[autoload]
+
+AppVariables="*res://AutoLoads/AppVariables.tscn"
+GlobalVariables="*res://AutoLoads/GlobalVariables.tscn"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
+[display]
+
+window/size/width=720
+window/size/height=480
+window/size/borderless=true
+
+[global]
+
+error=false
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

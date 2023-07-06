@@ -1,0 +1,205 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Textures/CloseIcon.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/CustomModeButton.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/TitleBar.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/CustomButton.gd" type="Script" id=4]
+[ext_resource path="res://Textures/MinimizeIcon.png" type="Texture" id=5]
+[ext_resource path="res://Textures/AppIcon32x32.png" type="Texture" id=6]
+[ext_resource path="res://Textures/SpecialTitleButtonHoverAddedTexture.png" type="Texture" id=7]
+[ext_resource path="res://Textures/TaskbarHoverAddedTexture.png" type="Texture" id=8]
+[ext_resource path="res://Textures/NormalTitleButtonHoverAddedTexture.png" type="Texture" id=9]
+[ext_resource path="res://Textures/RestoreDownIcon.png" type="Texture" id=10]
+[ext_resource path="res://Textures/MaximizeIcon.png" type="Texture" id=11]
+[ext_resource path="res://Themes/TitleBarTheme.tres" type="Theme" id=12]
+[ext_resource path="res://Textures/TaskbarPressedAddedTexture.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/App.gd" type="Script" id=14]
+[ext_resource path="res://Themes/WorkspaceTabContainer.tres" type="Theme" id=15]
+[ext_resource path="res://Textures/FlashcardIcon.png" type="Texture" id=17]
+[ext_resource path="res://Textures/SettingIcon.png" type="Texture" id=18]
+[ext_resource path="res://Textures/LibraryIcon.png" type="Texture" id=19]
+
+[node name="PrimoApp" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+
+[node name="TitleBar" type="Control" parent="VBoxContainer"]
+margin_right = 720.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 12 )
+script = ExtResource( 3 )
+
+[node name="CloseButton" type="TextureButton" parent="VBoxContainer/TitleBar"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 32.0
+hint_tooltip = "Close"
+texture_normal = ExtResource( 1 )
+expand = true
+script = ExtResource( 4 )
+normalTexture = ExtResource( 1 )
+hoverAddedTexture = ExtResource( 7 )
+
+[node name="ResizeButton" type="TextureButton" parent="VBoxContainer/TitleBar"]
+show_behind_parent = true
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -80.0
+margin_right = -40.0
+margin_bottom = 32.0
+hint_tooltip = "Maximize"
+texture_normal = ExtResource( 11 )
+expand = true
+script = ExtResource( 2 )
+normalTextures = [ ExtResource( 11 ), ExtResource( 10 ) ]
+hoverTextures = [ null, null ]
+hoverAddedTextures = [ ExtResource( 9 ), ExtResource( 9 ) ]
+tooltipContents = PoolStringArray( "Maximize", "Restore Down" )
+
+[node name="MinimizeButton" type="TextureButton" parent="VBoxContainer/TitleBar"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -120.0
+margin_right = -80.0
+margin_bottom = 32.0
+hint_tooltip = "Minimize"
+texture_normal = ExtResource( 5 )
+expand = true
+script = ExtResource( 4 )
+normalTexture = ExtResource( 5 )
+hoverAddedTexture = ExtResource( 9 )
+
+[node name="AppIcon" type="TextureRect" parent="VBoxContainer/TitleBar"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="WindowTitle" type="Label" parent="VBoxContainer/TitleBar"]
+margin_left = 32.0
+margin_right = 512.0
+margin_bottom = 32.0
+text = "Primo"
+valign = 1
+clip_text = true
+
+[node name="App" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 32.0
+margin_right = 720.0
+margin_bottom = 480.0
+size_flags_vertical = 3
+custom_constants/separation = 1
+script = ExtResource( 14 )
+
+[node name="Taskbar" type="Control" parent="VBoxContainer/App"]
+margin_right = 48.0
+margin_bottom = 448.0
+rect_min_size = Vector2( 48, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/App/Taskbar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[node name="SettingButton" type="TextureButton" parent="VBoxContainer/App/Taskbar"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -48.0
+margin_right = 48.0
+toggle_mode = true
+texture_normal = ExtResource( 18 )
+expand = true
+script = ExtResource( 4 )
+normalTexture = ExtResource( 18 )
+hoverAddedTexture = ExtResource( 8 )
+pressedAddedTexture = ExtResource( 13 )
+
+[node name="FlashcardButton" type="TextureButton" parent="VBoxContainer/App/Taskbar"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -96.0
+margin_right = 48.0
+margin_bottom = -48.0
+toggle_mode = true
+texture_normal = ExtResource( 17 )
+expand = true
+script = ExtResource( 4 )
+normalTexture = ExtResource( 17 )
+hoverAddedTexture = ExtResource( 8 )
+pressedAddedTexture = ExtResource( 13 )
+
+[node name="LibraryButton" type="TextureButton" parent="VBoxContainer/App/Taskbar"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -144.0
+margin_right = 48.0
+margin_bottom = -96.0
+toggle_mode = true
+texture_normal = ExtResource( 19 )
+expand = true
+script = ExtResource( 4 )
+normalTexture = ExtResource( 19 )
+hoverAddedTexture = ExtResource( 8 )
+pressedAddedTexture = ExtResource( 13 )
+
+[node name="Workspace" type="Control" parent="VBoxContainer/App"]
+margin_left = 49.0
+margin_right = 720.0
+margin_bottom = 448.0
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/App/Workspace"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.129412, 0.129412, 0.129412, 1 )
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/App/Workspace"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 15 )
+tabs_visible = false
+
+[node name="Library" type="Tabs" parent="VBoxContainer/App/Workspace/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Flashcard" type="Tabs" parent="VBoxContainer/App/Workspace/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+custom_icons/close = ExtResource( 1 )
+
+[node name="Setting" type="Tabs" parent="VBoxContainer/App/Workspace/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+custom_icons/close = ExtResource( 1 )
+
+[connection signal="gui_input" from="VBoxContainer/TitleBar" to="VBoxContainer/TitleBar" method="_on_gui_input"]
+[connection signal="pressed" from="VBoxContainer/TitleBar/CloseButton" to="VBoxContainer/TitleBar" method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/TitleBar/ResizeButton" to="VBoxContainer/TitleBar" method="_on_ResizeButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/TitleBar/MinimizeButton" to="VBoxContainer/TitleBar" method="_on_MinimizeButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/App/Taskbar/SettingButton" to="VBoxContainer/App" method="_on_TaskbarButton_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="VBoxContainer/App/Taskbar/FlashcardButton" to="VBoxContainer/App" method="_on_TaskbarButton_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="VBoxContainer/App/Taskbar/LibraryButton" to="VBoxContainer/App" method="_on_TaskbarButton_pressed" binds= [ 0 ]]
