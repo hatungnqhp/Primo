@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Fonts/tres/TooltipFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Textures/TooltipBoxTexture.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/tres/Title13pxFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/tres/TitleBarFont.tres" type="DynamicFont" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=8]
 

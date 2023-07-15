@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=4 format=2]
+
+[ext_resource path="res://StyleBoxs/CustomTabContainerStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Fonts/tres/CustomTabContainerFont.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[resource]
+TabContainer/colors/font_color_bg = Color( 0.698039, 0.698039, 0.698039, 1 )
+TabContainer/colors/font_color_fg = Color( 1, 1, 1, 1 )
+TabContainer/constants/side_margin = 16
+TabContainer/fonts/font = ExtResource( 2 )
+TabContainer/styles/panel = SubResource( 1 )
+TabContainer/styles/tab_bg = ExtResource( 1 )
+TabContainer/styles/tab_disabled = null
+TabContainer/styles/tab_fg = ExtResource( 1 )

@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Prefabs/CustomTabContainer.tscn" type="PackedScene" id=2]
+
+[node name="Library" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CustomTabContainer" parent="." instance=ExtResource( 2 )]
+
+[node name="Folders" type="Control" parent="CustomTabContainer/TabContainer" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CustomTabContainer/TabContainer/Folders"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="CustomTabContainer/TabContainer/Folders/ScrollContainer"]
+margin_right = 660.0
+margin_bottom = 1000.0
+rect_min_size = Vector2( 660, 1000 )
+
+[node name="Modules" type="Control" parent="CustomTabContainer/TabContainer" index="1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+
+[node name="Topics" type="Control" parent="CustomTabContainer/TabContainer" index="2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+
+[editable path="CustomTabContainer"]

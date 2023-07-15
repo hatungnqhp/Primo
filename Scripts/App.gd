@@ -11,7 +11,7 @@ const TASKBAR_TAB_NAMES = {
 onready var settingButton = $Taskbar/SettingButton
 onready var flashcardButton = $Taskbar/FlashcardButton
 onready var libraryButton = $Taskbar/LibraryButton
-onready var workspaceTabContainer = $Workspace/TabContainer
+onready var workspaceTabContainer = $Workspace/WorkspaceTabContainer
 
 var currentTaskbarTab: int = -1 setget set_currentTaskbarTab
 
